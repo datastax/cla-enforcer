@@ -16,7 +16,7 @@ for open source projects.
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
-## Configuring
+## Configuration
 
 The CLA Enforcer comes with generic templates for the CLA form, and comment
 bodies. We expect you to customize them before deploying CLA Enforcer.
