@@ -1,0 +1,51 @@
+<div class="page-header">
+  <h1>Welcome back, <%= @status[:name] %>!</h1>
+</div>
+
+<p>Looks like you've already started the process of signing the <%= agreement_name %>, thank you!</p>
+
+<% if @param == 'form' %>
+<p class="text-danger"><%= @message %></p>
+<% end %>
+
+<form class="form-horizontal">
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Username</label>
+    <div class="col-sm-10">
+      <p class="form-control-static"><%= @status[:login] %></p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Name</label>
+    <div  class="col-sm-10">
+      <p class="form-control-static"><%= @status[:name] %></p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Email</label>
+    <div  class="col-sm-10">
+      <p class="form-control-static"><%= @status[:email] %></p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Company</label>
+    <div  class="col-sm-10">
+      <p class="form-control-static"><%= @status[:company] %></p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Status</label>
+    <div  class="col-sm-10">
+      <p class="form-control-static">
+        <span class="label label-<%= label_color(@status[:status]) %>"><%= @status[:status] %></span>
+      </p>
+    </div>
+  </div>
+  <% unless @status[:status] == 'Completed' %>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-danger" formaction="/reset" formmethod="post">Reset</button>
+    </div>
+  </div>
+  <% end %>
+</form>

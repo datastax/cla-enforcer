@@ -1,0 +1,123 @@
+{
+  "name": "CLA Enforcer",
+  "description": "Ensure that all your contributors have signed a Contribution License Agreement.",
+  "keywords": [
+    "small",
+    "sharp",
+    "tool"
+  ],
+  "addons": [
+    "pgbackups",
+    "heroku-postgresql"
+  ],
+  "env": {
+    "HOSTNAME": {
+      "description": "The hostname where this app is located, e.g. https://cla.mycompany.com/. This hostname will be used to configure web-hook urls with GitHub and DocuSign APIs.",
+      "required": true
+    },
+    "AGREEMENT_NAME": {
+      "description": "The name of the CLA document, this will be used in default templates and email body, as well as the file name of the generated PDF file.",
+      "value": "Contribution License Agreement",
+      "required": true
+    },
+    "CLA_LABEL_NAME": {
+      "description": "The label that will be used to tag pull requests from contributors that haven't signed the agreement.",
+      "value": "cla-missing",
+      "required": false
+    },
+    "CLA_LABEL_COLOR": {
+      "description": "The color of the CLA label.",
+      "value": "e11d21",
+      "required": false
+    },
+    "SINATRA_SECRET": {
+      "description": "Secret key used to encrypt sinatra sessions.",
+      "generator": "secret",
+      "required": true
+    },
+    "GITHUB_VERIFIER_SECRET": {
+      "description": "Used for signature verification of events received from GitHub's API. Read more at https://developer.github.com/webhooks/securing/.",
+      "generator": "secret",
+      "required": true
+    },
+    "WEB_WORKERS": {
+      "description": "Number of worker processes that will be used by Puma. Read more at https://github.com/puma/puma/blob/master/examples/config.rb#L101-L105.",
+      "value": "4",
+      "required": false
+    },
+    "MAX_THREADS": {
+      "description": "Number of threads that Puma will use to handle requests in each worker process. Read more at https://github.com/puma/puma/blob/master/examples/config.rb#L62-L67.",
+      "value": "5",
+      "required": false
+    },
+    "GITHUB_HOSTNAME": {
+      "description": "Base url for the GitHub web interface. This is used to determine full repository url when subscribing for pull requests and comments web hooks.",
+      "value": "https://github.com/",
+      "required": false
+    },
+    "GITHUB_API_ENDPOINT": {
+      "description": "Base url for the GitHub API. This is used to make api requests from console.",
+      "value": "https://api.github.com/",
+      "required": false
+    },
+    "GITHUB_CLIENT_ID": {
+      "description": "GitHub oAuth application client id. Read more at https://developer.github.com/guides/basics-of-authentication/.",
+      "required": true
+    },
+    "GITHUB_SECRET": {
+      "description": "GitHub oAuth application secret key. Read more at https://developer.github.com/guides/basics-of-authentication/.",
+      "required": true
+    },
+    "GITHUB_ACCESS_TOKEN": {
+      "description": "GitHub API personal access token. This will be used to make API requests from the command line, when executing rake tasks. Read more at https://help.github.com/articles/creating-an-access-token-for-command-line-use/.",
+      "required": true
+    },
+    "DOCUSIGN_USERNAME": {
+      "description": "Docusign API username or user ID. Read more at https://www.docusign.com/p/RESTAPIGuide/RESTAPIGuide.htm#cURL/Sending%20HTTP%20Requests%20with%20cURL.htm%3FTocPath%3D_____6.",
+      "required": true
+    },
+    "DOCUSIGN_PASSWORD": {
+      "description": "Docusign API password. Read more at https://www.docusign.com/p/RESTAPIGuide/RESTAPIGuide.htm#cURL/Sending%20HTTP%20Requests%20with%20cURL.htm%3FTocPath%3D_____6.",
+      "required": true
+    },
+    "DOCUSIGN_ACCOUNT_ID": {
+      "description": "Docusign API account ID. Read more at https://www.docusign.com/p/RESTAPIGuide/RESTAPIGuide.htm#cURL/Sending%20HTTP%20Requests%20with%20cURL.htm%3FTocPath%3D_____6.",
+      "required": true
+    },
+    "DOCUSIGN_INTEGRATOR_KEY": {
+      "description": "Docusign API integrator key. Read more at https://www.docusign.com/p/RESTAPIGuide/RESTAPIGuide.htm#GettingStarted/Integrator Keys.htm%3FTocPath%3DGetting%2520Started%7C_____1.",
+      "required": true
+    },
+    "DOCUSIGN_TEMPLATE_ROLE": {
+      "description": "Docusign Template Role name.",
+      "value": "Contributor",
+      "required": false
+    },
+    "DOCUSIGN_ENDPOINT": {
+      "description": "DocuSign API endpoint. Defaults to the demo endpoint. Read more at https://www.docusign.com/p/RESTAPIGuide/RESTAPIGuide.htm#cURL/Sending%20HTTP%20Requests%20with%20cURL.htm%3FTocPath%3D_____6.",
+      "value": "https://demo.docusign.net/restapi",
+      "required": false
+    },
+    "DOCUSIGN_SIGNATURE_POS_X": {
+      "description": "The horizontal offset in pixels (from top left corner of the document) on the page of the CLA, where the 'Sign Here' field should be located.",
+      "value": "65",
+      "required": false
+    },
+    "DOCUSIGN_SIGNATURE_POS_Y": {
+      "description": "The vertical offset in pixels (from top left corner of the document) on the page of the CLA, where the 'Sign Here' field should be located.",
+      "value": "680",
+      "required": false
+    },
+    "DOCUSIGN_SIGNATURE_PAGE": {
+      "description": "The page of the CLA, where the 'Sign Here' field should be located.",
+      "value": "1",
+      "required": false
+    },
+    "LANG": "en_US.UTF-8",
+    "RACK_ENV": "production",
+    "BUILDPACK_URL": "https://github.com/ddollar/heroku-buildpack-multi.git"
+  },
+  "scripts": {
+    "postdeploy": "bundle exec rake db:migrate"
+  }
+}

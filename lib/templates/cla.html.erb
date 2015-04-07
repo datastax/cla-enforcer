@@ -1,0 +1,106 @@
+<html>
+
+<head>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<style>
+body { 
+  font-size: 12px;
+  color: #222; 
+  background: #fff;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  margin: 20px;
+  line-height: 1.2;
+}
+h1,h2 { font-weight: normal; }
+h1    { font-size: 2.5em; margin-bottom: 1em; }
+h2    { font-size: 1.5em; margin-bottom: 0.75em; }
+p     { margin: 0 0 0.75em; }
+ul    { padding: 0; margin: 1em 0 1em 0; list-style-type: disc; }
+ul li { margin: 0 0 0.25em 2.5em; }
+dl    { margin: 0 0 1em 0; }
+dl dt { font-weight: bold; margin: 0 0 0.25em 0; }
+dd    { margin: 0 0 0.25em 1.5em; }
+table { margin: 1em 0 1em 0; width: 100%; }
+th    { font-weight: bold; text-align: right; }
+th,td { padding: 0 0.75em 0.25em 0.75em; margin: 0; font-size: 12px; }
+</style>
+</head>
+
+<body>
+
+<h1>The Contribution License Agreement</h1>
+
+<h2>Preface</h2>
+
+<p>This Agreement is between You, the Users, the Contributors, and the Company. The intent of the Agreement is to clarify your responsibilities as a Contributor.</p>
+
+<p>The Agreement is meant to protect You, the Users, the Contributors, and the Company from the malicious misdeeds of others. The Agreement is <i>not</i> intended to restrict how You use Your own Contributions.</p>
+
+<h2>Definitions</h2>
+
+<dl>
+  <dt>Agreement</dt>
+  <dd>This document.</dd>
+
+  <dt>You / Your</dt>
+  <dd>The individual signing this Agreement.</dd>
+
+  <dt>Company</dt>
+  <dd>The company which manages the Projects.</dd>
+
+  <dt>Project</dt>
+  <dd>Open source projects being managed by the Company.</dd>
+
+  <dt>Contribution</dt>
+  <dd>Code, content, and ideas that are meant to be integrated into Projects.</dd>
+
+  <dt>Contributor</dt>
+  <dd>Those people and corporations that provide Contributions.</dd>
+
+  <dt>User</dt>
+  <dd>Those people and companies which make use of the Projects.</dd>
+</dl>
+
+<h2>Licensing Agreement</h2>
+
+<p>When You provide a Contribution to a Project:</p>
+
+<ul>
+  <li>You assert that the Contribution was authored by You.</li>
+  <li>You license that Contribution under the terms of the license of that Project.</li>
+  <li>You assert that You have the authority and are able to license Your Contribution under the license of that Project.</li>
+  <li>If Your employer has rights to intellectual property that You create which may include Your Contribution, then You assert that Your employer has granted You explicit permission to license the Contribution on behalf of Your employer.</li>
+</ul>
+
+<p>Furthermore:</p>
+
+<ul>
+  <li>You assert that You have the authority and are able to enter into this Agreement.</li>
+  <li>If You become aware of a problem with any of Your Contributions or with the fact that You have signed this Agreement, then You agree to inform the Company about the problem, without any undue delay.</li>
+</ul>
+
+<table>
+  <tr>
+    <th>Username</th>
+    <td><%= username %></td>
+  </tr>
+  <tr>
+    <th>Name</th>
+    <td><%= name %></td>
+  </tr>
+  <tr>
+    <th>Email</th>
+    <td><%= email %></td>
+  </tr>
+  <tr>
+    <th>Company</th>
+    <td><%= company %></td>
+  </tr>
+  <tr>
+    <th>Date</th>
+    <td><%= Time.now.strftime('%m/%d/%Y') %></td>
+  </tr>
+</table>
+
+</body>
+</html>

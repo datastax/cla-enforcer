@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require 'bundler/setup'
+
+$: << File.expand_path('../../lib', __FILE__)
+
+require 'cla'
+
+CLA.runner.start.join

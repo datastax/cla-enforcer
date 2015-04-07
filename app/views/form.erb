@@ -1,0 +1,40 @@
+<div class="page-header">
+  <h1>Contribution Agreement Information</h1>
+</div>
+
+<p>Please complete the form below. We will then send you an email containing a link to view and electronically sign the <%= agreement_name %> in DocuSign.</p>
+
+<form class="form-horizontal" action="/submit" method="post">
+  <div class="form-group">
+    <label for="username" class="col-sm-2 control-label">Username</label>
+    <div class="col-sm-10">
+      <p class="form-control-static"><%= @user.login %></p>
+    </div>
+  </div>
+  <div class="form-group<% if @param == 'name' %> has-error<% end %>">
+    <label for="name" class="col-sm-2 control-label">Name</label>
+    <div  class="col-sm-10">
+      <input type="text" class="form-control" id="name" name="name" value="<%= @user.name %>">
+      <% if @param == 'name' %><span class="help-inline"><%= @message %></span><% end %>
+    </div>
+  </div>
+  <div class="form-group<% if @param == 'email' %> has-error<% end %>">
+    <label for="email" class="col-sm-2 control-label">Email</label>
+    <div  class="col-sm-10">
+      <input type="text" class="form-control" id="email" name="email" value="<%= @user.email %>">
+      <% if @param == 'email' %><span class="help-inline"><%= @message %></span><% end %>
+    </div>
+  </div>
+  <div class="form-group<% if @param == 'company' %> has-error<% end %>">
+    <label for="company" class="col-sm-2 control-label">Company</label>
+    <div  class="col-sm-10">
+      <input type="text" class="form-control" id="company" name="company" value="<%= @user.company %>">
+      <% if @param == 'company' %><span class="help-inline"><%= @message %></span><% end %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </div>
+</form>
