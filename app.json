@@ -18,7 +18,7 @@
     "AGREEMENT_NAME": {
       "description": "The name of the CLA document, this will be used in default templates and email body, as well as the file name of the generated PDF file.",
       "value": "Contribution License Agreement",
-      "required": true
+      "required": false
     },
     "CLA_LABEL_NAME": {
       "description": "The label that will be used to tag pull requests from contributors that haven't signed the agreement.",
@@ -56,20 +56,20 @@
       "required": false
     },
     "GITHUB_API_ENDPOINT": {
-      "description": "Base url for the GitHub API. This is used to make api requests from console.",
+      "description": "Base url for the GitHub API. This is used to make api requests.",
       "value": "https://api.github.com/",
       "required": false
     },
     "GITHUB_CLIENT_ID": {
-      "description": "GitHub oAuth application client id. Read more at https://developer.github.com/guides/basics-of-authentication/.",
+      "description": "GitHub OAuth application client id. Read more at https://developer.github.com/guides/basics-of-authentication/.",
       "required": true
     },
     "GITHUB_SECRET": {
-      "description": "GitHub oAuth application secret key. Read more at https://developer.github.com/guides/basics-of-authentication/.",
+      "description": "GitHub OAuth application secret key. Read more at https://developer.github.com/guides/basics-of-authentication/.",
       "required": true
     },
     "GITHUB_ACCESS_TOKEN": {
-      "description": "GitHub API personal access token. This will be used to make API requests from the command line, when executing rake tasks. Read more at https://help.github.com/articles/creating-an-access-token-for-command-line-use/.",
+      "description": "GitHub API personal access token. This will be used to make API requests. Read more at https://help.github.com/articles/creating-an-access-token-for-command-line-use/.",
       "required": true
     },
     "DOCUSIGN_USERNAME": {

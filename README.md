@@ -63,6 +63,86 @@ Views are Sinatra templates that display information to the user.
 * [status.erb](app/views/status.erb) - displays the CLA status as reported via
   webhooks by the DocuSign API. Also allows restarting the CLA process.
 
+### ENV
+
+CLA Enforcer is fully configurable via the environment variables described
+below.
+
+Note that you can skip this section if you're using the 'Deploy to Heroku'
+button as you'll be promted to specify these automatically.
+
+* `HOSTNAME` (_required_) - The hostname where this app is located, e.g.
+  `https://cla.mycompany.com/`. This hostname will be used to configure webhook
+  urls with GitHub and DocuSign APIs.
+
+* `SINATRA_SECRET` (_required_) - Secret key used to encrypt sinatra sessions.
+
+* `GITHUB_VERIFIER_SECRET` (_required_) - Used for signature verification of
+  events received from GitHub's API. Read more at https://developer.github.com/webhooks/securing/.
+
+* `GITHUB_CLIENT_ID` (_required_) - GitHub OAuth application client id. Read
+  more at https://developer.github.com/guides/basics-of-authentication/.
+
+* `GITHUB_SECRET` (_required_) - GitHub OAuth application secret key. Read more
+  at https://developer.github.com/guides/basics-of-authentication/.
+
+* `GITHUB_ACCESS_TOKEN` (_required_) - GitHub API personal access token. This
+  will be used to make API requests. Read more at https://help.github.com/articles/creating-an-access-token-for-command-line-use/.
+
+* `DOCUSIGN_USERNAME` (_required_) - Docusign API username or user ID. Read more
+  at https://www.docusign.com/p/RESTAPIGuide/RESTAPIGuide.htm#cURL/Sending%20HTTP%20Requests%20with%20cURL.htm%3FTocPath%3D_____6.
+
+* `DOCUSIGN_PASSWORD` (_required_) - Docusign API password. Read more at
+  https://www.docusign.com/p/RESTAPIGuide/RESTAPIGuide.htm#cURL/Sending%20HTTP%20Requests%20with%20cURL.htm%3FTocPath%3D_____6.
+
+* `DOCUSIGN_ACCOUNT_ID` (_required_) - Docusign API account ID. Read more at
+  https://www.docusign.com/p/RESTAPIGuide/RESTAPIGuide.htm#cURL/Sending%20HTTP%20Requests%20with%20cURL.htm%3FTocPath%3D_____6.
+
+* `DOCUSIGN_INTEGRATOR_KEY` (_required_) - Docusign API integrator key. Read
+  more at https://www.docusign.com/p/RESTAPIGuide/RESTAPIGuide.htm#GettingStarted/Integrator%20Keys.htm%3FTocPath%3DGetting%2520Started%7C_____1.
+
+* `AGREEMENT_NAME` (_optional_) - Defaults to `Contribution License Agreement`.
+  The name of the CLA document, this will be used in default templates and email
+  body, as well as the file name of the generated PDF file.
+
+* `CLA_LABEL_NAME` (_optional_) - Defaults to `cla-missing`. The label that
+  will be used to tag pull requests from contributors that haven't signed the
+  agreement.
+
+* `CLA_LABEL_COLOR` (_optional_) - Defaults to `e11d21`. The color of the CLA
+  label. 
+
+* `WEB_WORKERS` (_optional_) - Defaults to `4`. Number of worker processes that
+  will be used by the Puma web server. Read more at https://github.com/puma/puma/blob/master/examples/config.rb#L101-L105.
+
+* `MAX_THREADS` (_optional_) - Defaults to `5`. Number of threads that Puma
+  will use to handle requests in each worker process. Read more at https://github.com/puma/puma/blob/master/examples/config.rb#L62-L67.
+
+* `GITHUB_HOSTNAME` (_optional_) - Defaults to `https://github.com/`. Base url
+  for the GitHub web interface. This is used to determine full repository url
+  when subscribing for pull requests and comments web hooks.
+
+* `GITHUB_API_ENDPOINT` (_optional_) - Defaults to `https://api.github.com/`.
+  Base url for the GitHub API. This is used to make api requests.
+
+* `DOCUSIGN_ENDPOINT` (_optional_) - Defaults to `https://demo.docusign.net/restapi`.
+  DocuSign API endpoint. Read more at
+  https://www.docusign.com/p/RESTAPIGuide/RESTAPIGuide.htm#cURL/Sending%20HTTP%20Requests%20with%20cURL.htm%3FTocPath%3D_____6.
+
+* `DOCUSIGN_TEMPLATE_ROLE` (_optional_) - Defaults to `Contributor`. Docusign
+  Template Role name.
+
+* `DOCUSIGN_SIGNATURE_POS_X` (_optional_) - Defaults to `65`. The horizontal
+  offset in pixels (from top left corner of the document) on the page of the
+  CLA, where the 'Sign Here' field should be located.
+
+* `DOCUSIGN_SIGNATURE_POS_Y` (_optional_) - Defaults to `680`. The vertical
+  offset in pixels (from top left corner of the document) on the page of the
+  CLA, where the 'Sign Here' field should be located.
+
+* `DOCUSIGN_SIGNATURE_PAGE` (_optional_) - Defaults to `1`. The page of the CLA,
+  where the 'Sign Here' field should be located.",
+
 ## Usage
 
 After you've deployed CLA Enforcer to Heroku, it's time to enable it for the
