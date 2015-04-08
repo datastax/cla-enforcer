@@ -169,43 +169,43 @@ button as you'll be prompted to specify these automatically.
 Note that the instructions below assume `https://cla-enforcer.ngrok.com/`
 hostname, feel free to use any other hostname, this one is given as an example.
 
-1. Clone this repository.
-2. [Install Bundler](http://bundler.io/).
-3. Download and install CLA Enforcer's dependencies:
+* Clone this repository.
+* [Install Bundler](http://bundler.io/).
+* Download and install CLA Enforcer's dependencies:
 
 ```bash
 bundle install
 ```
 
-4. [Download ngrok](https://ngrok.com/download).
-5. Start ngrok with the `cla-enforcer` subdomain and forwarding to port `3000`:
+* [Download ngrok](https://ngrok.com/download).
+* Start ngrok with the `cla-enforcer` subdomain and forwarding to port `3000`:
 
 ```bash
 ngrok -log=stdout -subdomain cla-enforcer 3000
 ```
 
-6. [Register a GitHub application](https://github.com/settings/applications/new)
-   with `https://cla-enforcer.ngrok.com/` as the `Homepage URL` and
-   `https://cla-enforcer.ngrok.com/authorize` as the `Authorization callback URL`.
+* [Register a GitHub application](https://github.com/settings/applications/new)
+  with `https://cla-enforcer.ngrok.com/` as the `Homepage URL` and
+  `https://cla-enforcer.ngrok.com/authorize` as the `Authorization callback URL`.
 
-7. Create `.env` file in the repository root by modifying defaults in [`.env.sample`](.env.sample).
-   Make sure to set the `HOSTNAME` to `https://cla-enforcer.ngrok.com/` and
-   `PORT` to `3000`.
+* Create `.env` file in the repository root by modifying defaults in [`.env.sample`](.env.sample).
+  Make sure to set the `HOSTNAME` to `https://cla-enforcer.ngrok.com/` and
+  `PORT` to `3000`.
 
-8. Start CLA Enforcer:
+* Start CLA Enforcer:
 
 ```bash
 bundle exec dotenv bin/cla-enforcer
 ```
 
-9. Navigate to the CLA Enforcer web interface:
+* Navigate to the CLA Enforcer web interface:
 
 ```bash
 open https://cla-enforcer.ngrok.com/
 ```
 
-10. After you're done, shut down ngrok and cla enforcer by pressing `CTRL+C` in
-    their appropriate terminal tabs.
+* After you're done, shut down ngrok and cla enforcer by pressing `CTRL+C` in
+  their appropriate terminal tabs.
 
 ## How it works
 
