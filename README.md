@@ -96,11 +96,6 @@ button as you'll be promted to specify these automatically.
   `https://cla.mycompany.com/`. This hostname will be used to configure webhook
   urls with GitHub and DocuSign APIs.
 
-* `SINATRA_SECRET` (_required_) - Secret key used to encrypt sinatra sessions.
-
-* `GITHUB_VERIFIER_SECRET` (_required_) - Used for signature verification of
-  events received from GitHub's API. Read more at https://developer.github.com/webhooks/securing/.
-
 * `GITHUB_CLIENT_ID` (_required_) - GitHub OAuth application client id. Read
   more at https://developer.github.com/guides/basics-of-authentication/.
 
@@ -133,12 +128,6 @@ button as you'll be promted to specify these automatically.
 * `CLA_LABEL_COLOR` (_optional_) - Defaults to `e11d21`. The color of the CLA
   label. 
 
-* `WEB_WORKERS` (_optional_) - Defaults to `4`. Number of worker processes that
-  will be used by the Puma web server. Read more at https://github.com/puma/puma/blob/master/examples/config.rb#L101-L105.
-
-* `MAX_THREADS` (_optional_) - Defaults to `5`. Number of threads that Puma
-  will use to handle requests in each worker process. Read more at https://github.com/puma/puma/blob/master/examples/config.rb#L62-L67.
-
 * `GITHUB_HOSTNAME` (_optional_) - Defaults to `https://github.com/`. Base url
   for the GitHub web interface. This is used to determine full repository url
   when subscribing for pull requests and comments web hooks.
@@ -163,6 +152,17 @@ button as you'll be promted to specify these automatically.
 * `DOCUSIGN_SIGNATURE_POS_Y` (_optional_) - Defaults to `680`. The vertical
   offset in pixels (from top left corner of the document) on the page of the
   CLA, where the 'Sign Here' field should be located.
+
+* `SINATRA_SECRET` (_required_) - Secret key used to encrypt sinatra sessions.
+
+* `GITHUB_VERIFIER_SECRET` (_required_) - Used for signature verification of
+  events received from GitHub's API. Read more at https://developer.github.com/webhooks/securing/.
+
+* `WEB_WORKERS` (_optional_) - Defaults to `4`. Number of worker processes that
+  will be used by the Puma web server. Read more at https://github.com/puma/puma/blob/master/examples/config.rb#L101-L105.
+
+* `MAX_THREADS` (_optional_) - Defaults to `5`. Number of threads that Puma
+  will use to handle requests in each worker process. Read more at https://github.com/puma/puma/blob/master/examples/config.rb#L62-L67.
 
 ## Development
 
