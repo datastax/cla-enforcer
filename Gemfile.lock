@@ -11,6 +11,7 @@ GEM
     docusign_rest (0.1.1)
       json
       multipart-post (>= 1.2)
+    dotenv (1.0.2)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
     i18n (0.7.0)
@@ -64,6 +65,7 @@ PLATFORMS
 
 DEPENDENCIES
   docusign_rest
+  dotenv
   nokogiri
   nori
   pdfkit

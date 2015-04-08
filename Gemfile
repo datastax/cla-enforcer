@@ -14,3 +14,7 @@ gem 'rack-parser', :require => 'rack/parser'
 gem 'nokogiri'
 gem 'rake'
 gem 'pdfkit'
+
+group :development do
+  gem 'dotenv'
+end

@@ -7,7 +7,8 @@ for open source projects.
 
 1. [Create a GitHub Application](https://github.com/settings/applications/new)
    and optionally [a GitHub account](https://github.com/join) that will be used
-   to leave comments on and tag pull requests.
+   to leave comments on and tag pull requests. Specify your `HOSTNAME` as the
+   `Homepage URL` and `HOSTNAME/authorize` as the `Authorization callback URL`.
 2. [Sign up for the DocuSign API](https://www.docusign.com/developer-center/get-started).
 3. [Fork this repository](https://help.github.com/articles/fork-a-repo/).
 4. Modify the default [views](app/views) and [templates](lib/templates) as
@@ -15,6 +16,26 @@ for open source projects.
 5. Press the 'Deploy to Heroku' button below.
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
+## Usage
+
+After you've deployed CLA Enforcer to Heroku, it's time to enable it for the
+relevant repositories.
+
+1. Make sure that the account you've used for `GITHUB_ACCESS_TOKEN` is added as
+   an explicit collaborator to the repository.
+
+2. Enable the GitHub pull request creation webhook:
+
+```bash
+heroku run rake cla:enforce[username/repository]
+```
+
+3. See what else you can do:
+
+```bash
+heroku run rake -D
+```
 
 ## Configuration
 
@@ -143,25 +164,48 @@ button as you'll be promted to specify these automatically.
   offset in pixels (from top left corner of the document) on the page of the
   CLA, where the 'Sign Here' field should be located.
 
-## Usage
+## Development
 
-After you've deployed CLA Enforcer to Heroku, it's time to enable it for the
-relevant repositories.
+Note that the instructions below assume `https://cla-enforcer.ngrok.com/`
+hostname, feel free to use any other hostname, this one is given as an example.
 
-1. Make sure that the account you've used for `GITHUB_ACCESS_TOKEN` is added as
-   an explicit collaborator to the repository.
-
-2. Enable the GitHub pull request creation webhook:
-
-```bash
-heroku run rake cla:enforce[username/repository]
-```
-
-3. See what else you can do:
+1. Clone this repository.
+2. [Install Bundler](http://bundler.io/).
+3. Download and install CLA Enforcer's dependencies:
 
 ```bash
-heroku run rake -D
+bundle install
 ```
+
+4. [Download ngrok](https://ngrok.com/download).
+5. Start ngrok with the `cla-enforcer` subdomain and forwarding to port `3000`:
+
+```bash
+ngrok -log=stdout -subdomain cla-enforcer 3000
+```
+
+6. [Register a GitHub application](https://github.com/settings/applications/new)
+   with `https://cla-enforcer.ngrok.com/` as the `Homepage URL` and
+   `https://cla-enforcer.ngrok.com/authorize` as the `Authorization callback URL`.
+
+7. Create `.env` file in the repository root by modifying defaults in [`.env.sample`](.env.sample).
+   Make sure to set the `HOSTNAME` to `https://cla-enforcer.ngrok.com/` and
+   `PORT` to `3000`.
+
+8. Start CLA Enforcer:
+
+```bash
+bundle exec dotenv bin/cla-enforcer
+```
+
+9. Navigate to the CLA Enforcer web interface:
+
+```bash
+open https://cla-enforcer.ngrok.com/
+```
+
+10. After you're done, shut down ngrok and cla enforcer by pressing `CTRL+C` in
+    their appropriate terminal tabs.
 
 ## How it works
 
