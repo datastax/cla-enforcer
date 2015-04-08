@@ -48,7 +48,7 @@ Templates are used when commenting on pull requests or generating a PDF file
 containing the CLA.
 
 * [cla.html.erb](lib/templates/cla.html.erb) - the actual CLA document in HTML.
-  The contents of this document will be redered into a PDF document that will
+  The contents of this document will be rendered into a PDF document that will
   be emailed out to contributors using the DocuSign API.
 
 * [request_signature.md.erb](lib/templates/request_signature.md.erb) - used
@@ -73,13 +73,13 @@ containing the CLA.
 Views are Sinatra templates that display information to the user.
 
 * [index.erb](app/views/index.erb) - the home page. A perfect place for
-  explaning the rationalle behind the CLA process as well as how it works.
+  explaining the rationale behind the CLA process as well as how it works.
 
 * [form.erb](app/views/form.erb) - displays the CLA form.
 
 * [accepted.erb](app/views/accepted.erb) - displays a thank you message after
   the CLA form has been submitted. Should show the email address that the CLA
-  file has been sent to as well as a link the CLA status page.
+  file has been sent to, as well as a link to the CLA status page.
 
 * [status.erb](app/views/status.erb) - displays the CLA status as reported via
   webhooks by the DocuSign API. Also allows restarting the CLA process.
@@ -90,7 +90,7 @@ CLA Enforcer is fully configurable via the environment variables described
 below.
 
 Note that you can skip this section if you're using the 'Deploy to Heroku'
-button as you'll be promted to specify these automatically.
+button as you'll be prompted to specify these automatically.
 
 * `HOSTNAME` (_required_) - The hostname where this app is located, e.g.
   `https://cla.mycompany.com/`. This hostname will be used to configure webhook
@@ -105,28 +105,28 @@ button as you'll be promted to specify these automatically.
 * `GITHUB_ACCESS_TOKEN` (_required_) - GitHub API personal access token. This
   will be used to make API requests. Read more at https://help.github.com/articles/creating-an-access-token-for-command-line-use/.
 
-* `DOCUSIGN_USERNAME` (_required_) - Docusign API username or user ID. Read more
+* `DOCUSIGN_USERNAME` (_required_) - DocuSign API username or user ID. Read more
   at https://www.docusign.com/p/RESTAPIGuide/RESTAPIGuide.htm#cURL/Sending%20HTTP%20Requests%20with%20cURL.htm%3FTocPath%3D_____6.
 
-* `DOCUSIGN_PASSWORD` (_required_) - Docusign API password. Read more at
+* `DOCUSIGN_PASSWORD` (_required_) - DocuSign API password. Read more at
   https://www.docusign.com/p/RESTAPIGuide/RESTAPIGuide.htm#cURL/Sending%20HTTP%20Requests%20with%20cURL.htm%3FTocPath%3D_____6.
 
-* `DOCUSIGN_ACCOUNT_ID` (_required_) - Docusign API account ID. Read more at
+* `DOCUSIGN_ACCOUNT_ID` (_required_) - DocuSign API account ID. Read more at
   https://www.docusign.com/p/RESTAPIGuide/RESTAPIGuide.htm#cURL/Sending%20HTTP%20Requests%20with%20cURL.htm%3FTocPath%3D_____6.
 
-* `DOCUSIGN_INTEGRATOR_KEY` (_required_) - Docusign API integrator key. Read
+* `DOCUSIGN_INTEGRATOR_KEY` (_required_) - DocuSign API integrator key. Read
   more at https://www.docusign.com/p/RESTAPIGuide/RESTAPIGuide.htm#GettingStarted/Integrator%20Keys.htm%3FTocPath%3DGetting%2520Started%7C_____1.
 
 * `AGREEMENT_NAME` (_optional_) - Defaults to `Contribution License Agreement`.
   The name of the CLA document, this will be used in default templates and email
-  body, as well as the file name of the generated PDF file.
+  bodies, as well as the file name of the generated PDF file.
 
 * `CLA_LABEL_NAME` (_optional_) - Defaults to `cla-missing`. The label that
   will be used to tag pull requests from contributors that haven't signed the
   agreement.
 
 * `CLA_LABEL_COLOR` (_optional_) - Defaults to `e11d21`. The color of the CLA
-  label. 
+  label.
 
 * `GITHUB_HOSTNAME` (_optional_) - Defaults to `https://github.com/`. Base url
   for the GitHub web interface. This is used to determine full repository url
@@ -211,7 +211,7 @@ open https://cla-enforcer.ngrok.com/
 
 CLA Enforcer is designed to easily run on Heroku's free tier. It consists of a
 Sinatra website served by Puma (Webapp) and a background worker (Worker)
-communicating over a unix domain socket and sharing a Postgres SQL database
+communicating over a Unix domain socket and sharing a PostgreSQL database
 (Database). You can easily have multiple instances of the API and Workers
 running across multiple Heroku dynos if necessary.
 
