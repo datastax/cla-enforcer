@@ -2,12 +2,11 @@
   "name": "CLA Enforcer",
   "description": "Ensure that all your contributors have signed a Contribution License Agreement.",
   "keywords": [
-    "small",
-    "sharp",
-    "tool"
+    "CLA",
+    "GitHub",
+    "DocuSign"
   ],
   "addons": [
-    "pgbackups",
     "heroku-postgresql"
   ],
   "env": {
