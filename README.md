@@ -132,6 +132,9 @@ button as you'll be promted to specify these automatically.
 * `DOCUSIGN_TEMPLATE_ROLE` (_optional_) - Defaults to `Contributor`. Docusign
   Template Role name.
 
+* `DOCUSIGN_SIGNATURE_PAGE` (_optional_) - Defaults to `1`. The page of the CLA,
+  where the 'Sign Here' field should be located.",
+
 * `DOCUSIGN_SIGNATURE_POS_X` (_optional_) - Defaults to `65`. The horizontal
   offset in pixels (from top left corner of the document) on the page of the
   CLA, where the 'Sign Here' field should be located.
@@ -139,9 +142,6 @@ button as you'll be promted to specify these automatically.
 * `DOCUSIGN_SIGNATURE_POS_Y` (_optional_) - Defaults to `680`. The vertical
   offset in pixels (from top left corner of the document) on the page of the
   CLA, where the 'Sign Here' field should be located.
-
-* `DOCUSIGN_SIGNATURE_PAGE` (_optional_) - Defaults to `1`. The page of the CLA,
-  where the 'Sign Here' field should be located.",
 
 ## Usage
 
