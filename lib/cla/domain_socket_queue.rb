@@ -89,6 +89,7 @@ module CLA
         server.close
         interrupt_r.close
         readers.each(&:close).clear
+        FileUtils.rm_f(@endpoint)
       end
     end
 
