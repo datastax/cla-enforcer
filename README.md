@@ -25,13 +25,26 @@ relevant repositories.
 1. Make sure that the account you've used for `GITHUB_ACCESS_TOKEN` is added as
    an explicit collaborator to the repository.
 
-2. Enable the GitHub pull request creation webhook:
+2. Install Heroku command line app:
+
+```bash
+brew install heroku
+```
+
+3. Clone your newly created Heroku app:
+
+```bash
+heroku git:clone -a [yourappname]
+cd [yourappname]
+```
+
+4. Enable the GitHub pull request creation webhook:
 
 ```bash
 heroku run rake cla:enforce[username/repository]
 ```
 
-3. See what else you can do:
+5. See what else you can do:
 
 ```bash
 heroku run rake -D
