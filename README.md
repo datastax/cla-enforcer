@@ -22,29 +22,29 @@ for open source projects.
 After you've deployed CLA Enforcer to Heroku, it's time to enable it for the
 relevant repositories.
 
-1. Make sure that the account you've used for `GITHUB_ACCESS_TOKEN` is added as
+* Make sure that the account you've used for `GITHUB_ACCESS_TOKEN` is added as
    an explicit collaborator to the repository.
 
-2. Install Heroku command line app:
+* Install Heroku command line app:
 
 ```bash
 brew install heroku
 ```
 
-3. Clone your newly created Heroku app:
+* Clone your newly created Heroku app:
 
 ```bash
 heroku git:clone -a [yourappname]
 cd [yourappname]
 ```
 
-4. Enable the GitHub pull request creation webhook:
+* Enable the GitHub pull request creation webhook:
 
 ```bash
 heroku run rake cla:enforce[username/repository]
 ```
 
-5. See what else you can do:
+* See what else you can do:
 
 ```bash
 heroku run rake -D
